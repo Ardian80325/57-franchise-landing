@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #050403;
+  --foreground: #f7f2e7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(211, 33, 42, 0.24), transparent 30rem),
+    radial-gradient(circle at 78% 8%, rgba(244, 214, 139, 0.14), transparent 34rem),
+    radial-gradient(circle at 8% 62%, rgba(162, 169, 141, 0.1), transparent 30rem),
+    linear-gradient(180deg, #050403 0%, #0d0b09 42%, #15110d 100%);
+  color: var(--foreground);
+  font-family: var(--font-noto-sans-tc), "Noto Sans TC", "PingFang TC",
+    "Microsoft JhengHei", system-ui, sans-serif;
+  font-feature-settings: "palt" 1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.number-font {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-variant-numeric: tabular-nums lining-nums;
+  letter-spacing: 0;
+}
+
+.grid-glow {
+  background-image:
+    linear-gradient(rgba(244, 214, 139, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244, 214, 139, 0.08) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: linear-gradient(to bottom, black, transparent 80%);
+}
+
+.cloud-pattern {
+  background:
+    radial-gradient(circle at 18px 18px, rgba(244, 214, 139, 0.18) 0 2px, transparent 3px),
+    radial-gradient(circle at 54px 18px, rgba(162, 169, 141, 0.14) 0 2px, transparent 3px),
+    linear-gradient(90deg, transparent 0 18px, rgba(211, 33, 42, 0.1) 18px 20px, transparent 20px 72px);
+  background-size: 72px 36px;
+}
+
+.washi-texture {
+  background-image:
+    radial-gradient(circle at 18% 20%, rgba(255, 255, 255, 0.08), transparent 18rem),
+    radial-gradient(circle at 80% 0%, rgba(230, 173, 149, 0.08), transparent 20rem),
+    repeating-linear-gradient(
+      100deg,
+      rgba(247, 242, 231, 0.03) 0 1px,
+      transparent 1px 9px
+    );
+}
+
+.confetti-pattern {
+  background:
+    linear-gradient(22deg, transparent 0 45%, rgba(230, 173, 149, 0.2) 45% 55%, transparent 55%),
+    linear-gradient(112deg, transparent 0 45%, rgba(162, 169, 141, 0.18) 45% 55%, transparent 55%),
+    linear-gradient(72deg, transparent 0 48%, rgba(244, 214, 139, 0.16) 48% 56%, transparent 56%);
+  background-size: 92px 74px, 118px 96px, 142px 110px;
+}
+
+.ink-brush {
+  background:
+    radial-gradient(ellipse at 18% 50%, rgba(0, 0, 0, 0.9), transparent 45%),
+    linear-gradient(100deg, transparent 0 3%, rgba(0, 0, 0, 0.78) 12%, rgba(0, 0, 0, 0.22) 62%, transparent 86%);
+  filter: blur(0.2px);
+  opacity: 0.62;
+}
+
+.seal-box {
+  position: relative;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(247, 242, 231, 0.34);
+  background: rgba(211, 33, 42, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(211, 33, 42, 0.45);
+}
+
+.seal-box::before,
+.seal-box::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1px solid rgba(211, 33, 42, 0.62);
+}
+
+.seal-box::after {
+  inset: 10px;
+  border-color: rgba(244, 214, 139, 0.2);
+}
+
+.glass-panel {
+  border: 1px solid rgba(247, 242, 231, 0.13);
+  background:
+    linear-gradient(145deg, rgba(247, 242, 231, 0.12), rgba(247, 242, 231, 0.03)),
+    rgba(13, 11, 9, 0.82);
+  box-shadow: 0 24px 90px rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(20px);
+}
+
+.section-band {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(244, 214, 139, 0.08), transparent 25rem),
+    radial-gradient(circle at 90% 20%, rgba(211, 33, 42, 0.12), transparent 28rem),
+    repeating-linear-gradient(
+      105deg,
+      rgba(247, 242, 231, 0.018) 0 1px,
+      transparent 1px 12px
+    );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
