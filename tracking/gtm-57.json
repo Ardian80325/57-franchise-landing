@@ -1,0 +1,131 @@
+{
+  "exportFormatVersion": 2,
+  "containerVersion": {
+    "accountId": "6275855187",
+    "containerId": "284429984",
+    "container": {
+      "accountId": "6275855187",
+      "containerId": "284429984",
+      "name": "57-franchise-landing.vercel.app",
+      "publicId": "GTM-NSJH6D2X",
+      "usageContext": [
+        "WEB"
+      ]
+    },
+    "tag": [
+      {
+        "accountId": "6275855187",
+        "containerId": "284429984",
+        "tagId": "1",
+        "name": "57 | Analytics Base",
+        "type": "html",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "html",
+            "value": "<script>\n(function(w,d){\nif(w.location.hostname!=='57-franchise-landing.vercel.app')return;\ntry{if(w.localStorage.getItem('franchise-analytics-v1')==='denied')return;}catch(e){}\nif(w.franchiseAnalyticsReady)return;w.franchiseAnalyticsReady=true;\nw.dataLayer=w.dataLayer||[];w.gtag=w.gtag||function(){w.dataLayer.push(arguments);};\nw.gtag('consent','default',{analytics_storage:'granted',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});\nw.gtag('js',new Date());\nw.gtag('config','G-97PFSE3W2G',{allow_google_signals:false,allow_ad_personalization_signals:false,transport_type:'beacon'});\nvar s=d.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-97PFSE3W2G';d.head.appendChild(s);\n!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=true;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=true;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(w,d,'script','https://connect.facebook.net/en_US/fbevents.js');\nw.fbq('set','autoConfig',false,'4255894944655975');w.fbq('init','4255894944655975');w.fbq('track','PageView');\n})(window,document);\n</script>"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "supportDocumentWrite",
+            "value": "false"
+          }
+        ],
+        "firingTriggerId": [
+          "2147479553"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        },
+        "consentSettings": {
+          "consentStatus": "NOT_SET"
+        }
+      },
+      {
+        "accountId": "6275855187",
+        "containerId": "284429984",
+        "tagId": "2",
+        "name": "57 | Site Events",
+        "type": "html",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "html",
+            "value": "<script>\n(function(w){\nif(w.location.hostname!=='57-franchise-landing.vercel.app')return;\ntry{if(w.localStorage.getItem('franchise-analytics-v1')==='denied')return;}catch(e){}\nvar name={{Event}},c={{DLV - event_context}}||{};\nvar names={line_click:'LineClick',engaged_visit:'EngagedVisit',complete_page_view:'CompletePageView'};\nif(!names[name])return;\nvar p={button_location:c.button_location||'',active_seconds:Number(c.active_seconds)||0,scroll_percent:Number(c.scroll_percent)||0};\nif(w.gtag)w.gtag('event',name,{send_to:'G-97PFSE3W2G',button_location:p.button_location,active_seconds:p.active_seconds,scroll_percent:p.scroll_percent,transport_type:'beacon'});\nif(w.fbq)w.fbq('trackCustom',names[name],p);\n})(window);\n</script>"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "supportDocumentWrite",
+            "value": "false"
+          }
+        ],
+        "firingTriggerId": [
+          "1"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        },
+        "consentSettings": {
+          "consentStatus": "NOT_SET"
+        }
+      }
+    ],
+    "trigger": [
+      {
+        "accountId": "6275855187",
+        "containerId": "284429984",
+        "triggerId": "1",
+        "name": "57 | Website events",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "MATCH_REGEX",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "^(line_click|engaged_visit|complete_page_view)$"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "variable": [
+      {
+        "accountId": "6275855187",
+        "containerId": "284429984",
+        "variableId": "1",
+        "name": "DLV - event_context",
+        "type": "v",
+        "parameter": [
+          {
+            "type": "INTEGER",
+            "key": "dataLayerVersion",
+            "value": "2"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "event_context"
+          }
+        ]
+      }
+    ],
+    "builtInVariable": [
+      {
+        "accountId": "6275855187",
+        "containerId": "284429984",
+        "type": "EVENT",
+        "name": "Event"
+      }
+    ]
+  }
+}
