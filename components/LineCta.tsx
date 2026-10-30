@@ -33,8 +33,13 @@ export function trackLineClick(location: string) {
     return;
   }
 
-  window.fbq("track", "Lead");
-  window.fbq("trackCustom", "LineClick", { location });
+  // A click is not a verified inquiry or a new LINE friend.
+  // Measurement failures must never interrupt the native link.
+  try {
+    window.fbq("trackCustom", "LineClick", { location });
+  } catch {
+    // Continue directly to official LINE.
+  }
 }
 
 export function LineCta({
