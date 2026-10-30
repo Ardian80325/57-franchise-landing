@@ -21,25 +21,24 @@ http://localhost:3000
 
 ```bash
 NEXT_PUBLIC_LINE_URL=https://lin.ee/qEszn67
-NEXT_PUBLIC_META_PIXEL_ID=REPLACE_WITH_META_PIXEL_ID
+NEXT_PUBLIC_GTM_ID=GTM-NSJH6D2X
 ```
 
-若未設定 Meta Pixel ID，Pixel 不會初始化，也不會造成錯誤。LINE 連結目前已設定為官方網址 `https://lin.ee/qEszn67`。
+正式網站的追蹤由 GTM 統一管理，原本的 MetaPixel 元件不再掛載，避免重複 PageView。預覽與開發網域不載入正式追蹤。設定來源為 `tracking/gtm-57.json`，修改後仍須到 GTM 匯入並發布。
 
-## Meta Pixel 事件
+## 追蹤設定
 
-網站載入時：
-
-```js
-fbq("track", "PageView")
-```
-
-所有 LINE CTA 點擊時：
-
-```js
-fbq("track", "Lead")
-fbq("trackCustom", "LineClick", { location: "button-location" })
-```
+- GTM：`GTM-NSJH6D2X`
+- GA4：`G-97PFSE3W2G`
+- Meta 像素：`4255894944655975`
+- GSC：`https://57-franchise-landing.vercel.app/`（URL 前置字元資源）
+- `/privacy` 提供分析停用選擇；預設啟動不等於記錄為明確同意。
+- `line_click` → GA4 `line_click`、Meta `LineClick`，附 `button_location`。
+- `engaged_visit` → GA4 同名、Meta `EngagedVisit`：前景且有焦點累計 30 秒，當下閱讀深度至少 50%。
+- `complete_page_view` → GA4 同名、Meta `CompletePageView`：前景且有焦點累計 60 秒，當下閱讀深度至少 90%。
+- 閱讀事件每次首頁掛載各一次。此為閱讀意圖指標，不代表實際讀完全文。
+- LINE 使用原生官方連結直接開啟，追蹤不等待、不阻擋跳轉；點擊不送出 `Lead`、`Contact` 或已加好友事件。
+- 本次不含 Google Ads。
 
 ## Logo 注意事項
 
@@ -74,5 +73,5 @@ fbq("trackCustom", "LineClick", { location: "button-location" })
 2. 在 Vercel 匯入專案。
 3. 於 Vercel Project Settings 設定：
    - `NEXT_PUBLIC_LINE_URL`
-   - `NEXT_PUBLIC_META_PIXEL_ID`
+   - `NEXT_PUBLIC_GTM_ID`
 4. 部署即可。
