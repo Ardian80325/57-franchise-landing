@@ -3,14 +3,9 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, MessageCircle } from "lucide-react";
 import type { ReactNode } from "react";
+import { trackSiteEvent } from "@/lib/analytics";
 
 const fallbackLineUrl = "https://lin.ee/qEszn67";
-
-declare global {
-  interface Window {
-    fbq?: (...args: unknown[]) => void;
-  }
-}
 
 type LineCtaProps = {
   children: ReactNode;
@@ -29,12 +24,13 @@ const variantClass = {
 };
 
 export function trackLineClick(location: string) {
-  if (typeof window === "undefined" || typeof window.fbq !== "function") {
-    return;
+  // A click is not a verified inquiry or a new LINE friend.
+  // Measurement failures must never interrupt the native link.
+  try {
+    trackSiteEvent("line_click", { button_location: location });
+  } catch {
+    // Continue directly to official LINE.
   }
-
-  window.fbq("track", "Lead");
-  window.fbq("trackCustom", "LineClick", { location });
 }
 
 export function LineCta({
@@ -49,6 +45,7 @@ export function LineCta({
   return (
     <motion.a
       href={lineUrl}
+      data-line-location={location}
       target="_blank"
       rel="noopener noreferrer"
       onClick={() => trackLineClick(location)}

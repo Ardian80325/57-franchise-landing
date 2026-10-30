@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Noto_Sans_TC } from "next/font/google";
 import "./globals.css";
-import { MetaPixel } from "@/components/MetaPixel";
+import { SiteTracking } from "@/components/SiteTracking";
 
 const notoSansTc = Noto_Sans_TC({
   subsets: ["latin"],
@@ -11,6 +11,9 @@ const notoSansTc = Noto_Sans_TC({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://57-franchise-landing.vercel.app"),
+  alternates: { canonical: "/" },
+  verification: { google: "2qREKXQ9jiPD_EfcydIP2j5W8rrstCsGK6VRrX4pm64" },
   title: "57益智生活館加盟｜0加盟金・24H無人自助桌遊空間",
   description:
     "57益智生活館提供 0 加盟金合作方案，結合智能預約收款、遠端管理後台、D1 合法規劃與總部行銷支援，打造低人力、可試算的無人娛樂空間加盟模式。",
@@ -31,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="zh-Hant" className={notoSansTc.variable}>
       <body>
-        <MetaPixel />
+        <SiteTracking />
         {children}
       </body>
     </html>

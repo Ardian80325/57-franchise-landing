@@ -753,6 +753,7 @@ export default function HomePage() {
               <Sparkles className="h-4 w-4 text-brand-red" />
               先評估，再投入
             </span>
+            <a href="/privacy" className="underline underline-offset-4 hover:text-brand-cream">隱私權與分析設定</a>
           </div>
         </div>
       </footer>
